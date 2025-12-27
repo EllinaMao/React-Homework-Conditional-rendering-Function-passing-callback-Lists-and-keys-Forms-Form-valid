@@ -23,27 +23,35 @@ count попадает в замыкание в момент клика. Есл�
 Исправить баг, из-за которого в setTimeout используется устаревшее значение состояния.
  */
 
-import React, { useEffect, useState } from 'react';
+import {useState} from "react";
+import "../assets/css/CounterFix.css"
+import {useFadeTransition} from "../hooks/useFadeTransition";
 
 function CounterFix() {
+
+  const {shouldRender, isVisible, show, hide} = useFadeTransition();
   const [count, setCount] = useState(0);
-  useEffect(() => {
-    console.log("new count " + count);
-  })
+
   const handleClick = () => {
+    show();
     setTimeout(() => {
-      setCount(prevCount => prevCount + 1
-      );
-      console.log("old stucked " + count);
-    }, 1000);
+      setCount((prevCount) => prevCount + 1);
+      hide();
+    }, 10000);
   };
 
+
   return (
-    <div>
+    <div className="counterContainer">
       <p>Счётчик: {count}</p>
       <button onClick={handleClick}>+1 через 1 сек</button>
+      {shouldRender && (
+        <div className={`loaderContainer ${isVisible ? "loaderVisible" : ""}`}>
+          <img src="/hourglass-time.gif" alt="Loading..." width="100" />
+        </div>
+      )}
     </div>
   );
 }
 
-export default CounterFix;  
+export default CounterFix;

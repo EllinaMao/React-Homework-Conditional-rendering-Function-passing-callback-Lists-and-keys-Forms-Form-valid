@@ -1,0 +1,14 @@
+.counterContainer {
+  margin-bottom: 20px;
+  min-height: 300px;
+}
+
+.loaderContainer {
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out; 
+}
+
+.loaderVisible {
+  opacity: 1;
+}
