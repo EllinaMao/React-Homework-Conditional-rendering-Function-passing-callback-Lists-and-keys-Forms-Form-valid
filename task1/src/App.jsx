@@ -3,6 +3,7 @@ import { ShowAndHide } from './components/AnimatedDiv/ShowAndHide'
 import CounterFix from './components/CounterFix'
 import Parent from './components/DifficultRelationsOfParentsAndChild/Parent'
 import WeatherContainer from './components/WeatherProgram/WeatherContainer'
+import ItemParent from './components/HundredItemsInThisHouse!/ItemParent'
 
 function App() {
 
@@ -13,7 +14,8 @@ function App() {
     {/* <ShowAndHide>
       <div>Hey! Click me as fast as you can!</div>
     </ShowAndHide> */}
-    <Parent />
+    {/* <Parent /> */}
+    {<ItemParent />}
     </>
   )
 }
