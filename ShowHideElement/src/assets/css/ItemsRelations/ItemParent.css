@@ -1,0 +1,6 @@
+.container-item {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    width: fit-content;
+    height: fit-content;
+}

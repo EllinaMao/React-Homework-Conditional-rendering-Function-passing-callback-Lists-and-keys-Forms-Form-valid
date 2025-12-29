@@ -1,0 +1,23 @@
+.item-box {
+    width: 10px;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 3px;
+    font-family: cursive;
+    border: 0.3px solid #000000;
+    transition: background-color 1s ease, color 1s ease;
+    cursor: pointer; 
+    box-sizing: border-box; 
+}
+.selected{
+    background-color: #3d3d3d;
+    color: #c4c4c4;
+}
+
+.inactive {
+    background-color: #c4c4c4;
+    color:#000000
+}
