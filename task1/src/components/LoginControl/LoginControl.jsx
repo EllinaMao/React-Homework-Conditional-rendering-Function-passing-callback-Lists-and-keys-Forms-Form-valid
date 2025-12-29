@@ -44,15 +44,32 @@ export default function LoginControl() {
             setEmail('');
             setPassword('');
             setError('');
-        },500)
+        }, 500)
 
     };
 
     return (
         <>
-            {!isLoggedIn ? (
-                <LogInForm email={email} password={password} setEmail={setEmail} setPassword={setPassword} handleLoggin={handleLogin} error={error} />) :
-                (<LogOutForm handleLogout={handleLogout} />)}
+{loginTransition.shouldRender && (
+                <LogInForm 
+                    email={email} 
+                    password={password} 
+                    setEmail={setEmail} 
+                    setPassword={setPassword} 
+                    handleLoggin={handleLogin} 
+                    error={error}
+                    // Передаем статус видимости для CSS классов
+                    isVisible={loginTransition.isVisible} 
+                />
+            )}
+
+            {/* Рендерим форму выхода, если хук говорит shouldRender */}
+            {logoutTransition.shouldRender && (
+                <LogOutForm 
+                    handleLogout={handleLogout}
+                    isVisible={logoutTransition.isVisible}
+                />
+            )}
         </>
     );
 }
